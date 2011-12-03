@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @user.name %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @user.email %>
+</p>
+
+<p>
+  <b>Cellphone:</b>
+  <%= @user.cellphone %>
+</p>
+
+<p>
+  <b>Password digest:</b>
+  <%= @user.password_digest %>
+</p>
+
+
+<b>수강하는프로그램</b>
+<ul>
+	<% @user.enrollments.each do |enroll| %>
+ 	<tr>
+		<td><%= enroll.course.name %></td>
+		<td><%= enroll.course.price%></td>
+	</tr>
+		<% end %> 
+</ul>
+
+
+
+
+<%= link_to 'Edit', edit_user_path(@user) %> 
+<%= link_to 'Back', users_path %>

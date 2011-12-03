@@ -1,0 +1,48 @@
+<p id="notice"><%= notice %></p>
+
+<h1>프로그램 소개</h1>
+
+<p>
+  <b>프로그램 명:</b>
+  <%= @course.name %>
+</p>
+
+<p>
+  <b>설명:</b>
+  <%= @course.description %>
+</p>
+
+<p>
+  <b>강사:</b>
+  <%= @course.user_id %>
+</p>
+
+<p>
+  <b>가격:</b>
+  <%= @course.price %>
+</p>
+
+<p>
+  <b>상태:</b>
+  <%= @course.status %>
+</p>
+
+
+
+<b>수강중인 사람들</b>
+<ul>
+	<% @course.enrollments.each do |enroll| %>
+ 	<tr>
+		<td><%= enroll.user.name %></td>
+	</tr>
+		<% end %> 
+</ul>
+
+
+
+<% if @course.enrollments.find_by_user_id(session[:user_id])%>
+<td><%= link_to '강의보기', lectures_path(course_id: @course) %></td>
+<% end %>
+
+<%= link_to 'Edit', edit_course_path(@course) %> |
+<%= link_to 'Back', courses_path %>

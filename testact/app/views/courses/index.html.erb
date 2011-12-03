@@ -1,0 +1,111 @@
+<h1>자신만의 프로그램을 만드시려면..</h1>
+
+
+
+<b><%= link_to '프로그램만들기', new_course_path %></b><br /><br /><br /><br />
+<br /><br /><br /><br />
+
+
+
+<table>
+	<b>프로그램 관리 목록(대기중)</b>
+  <tr>
+	
+    <th>Name</th>
+    <th>Description</th>
+    <th>강사</th>
+    <th>상태</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @courses.each do |course| %>
+  <tr>
+
+	<% if course.status == "pending"%>
+	
+    <td><%= course.name %></td>
+    <td><%= course.description %></td>
+    <td><%= course.user_id %></td>
+    <td><%= course.status %></td>
+    <td><%= link_to 'Show', course %></td>
+    <td><%= link_to 'Edit', edit_course_path(course) %></td>
+    <td><%= link_to 'Destroy', course, confirm: 'Are you sure?', method: :delete %></td>
+	<%end%>
+  </tr>
+
+
+<% end %>
+</table>
+
+<br/>
+<br/>
+<table>
+	<b>프로그램 관리 목록(승인됨)</b>
+  <tr>
+	
+    <th>Name</th>
+    <th>Description</th>
+    <th>강사</th>
+    <th>상태</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @courses.each do |course| %>
+  <tr>
+
+	<% if course.status == "approved"%>
+	
+    <td><%= course.name %></td>
+    <td><%= course.description %></td>
+    <td><%= course.user_id %></td>
+    <td><%= course.status %></td>
+    <td><%= link_to 'Show', course %></td>
+    <td><%= link_to 'Edit', edit_course_path(course) %></td>
+    <td><%= link_to 'Destroy', course, confirm: 'Are you sure?', method: :delete %></td>
+	<%end%>
+  </tr>
+
+
+<% end %>
+</table>
+
+
+
+<br/>
+<br/>
+<table>
+	<b>프로그램 관리 목록(거절)</b>
+  <tr>
+	
+    <th>Name</th>
+    <th>Description</th>
+    <th>강사</th>
+    <th>상태</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @courses.each do |course| %>
+  <tr>
+
+	<% if course.status == "rejected"%>
+	
+    <td><%= course.name %></td>
+    <td><%= course.description %></td>
+    <td><%= course.user_id %></td>
+    <td><%= course.status %></td>
+    <td><%= link_to 'Show', course %></td>
+    <td><%= link_to 'Edit', edit_course_path(course) %></td>
+    <td><%= link_to 'Destroy', course, confirm: 'Are you sure?', method: :delete %></td>
+	<%end%>
+  </tr>
+
+
+<% end %>
+</table>
+

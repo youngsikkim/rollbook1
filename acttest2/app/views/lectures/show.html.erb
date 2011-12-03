@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @lecture.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @lecture.description %>
+</p>
+
+<p>
+  <b>Course:</b>
+  <%= @lecture.course_id %>
+</p>
+
+<p>
+  <b>Video location:</b>
+  <%= @lecture.video_location %>
+</p>
+
+<p>
+  <b>Length:</b>
+  <%= @lecture.length %>
+</p>
+
+
+<%= link_to 'Edit', edit_lecture_path(@lecture) %> |
+<%= link_to 'Back', lectures_path %>

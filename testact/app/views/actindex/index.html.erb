@@ -1,0 +1,30 @@
+<% if notice %>
+<p id="notice"><%= notice %></p> <% end %>
+
+
+<h1>ACT</h1>
+
+
+<% @courses.each do |course| %>
+
+<% if course.status == "approved"%>	
+	
+	<div class="entry">
+		<h3>program name : <%=course.name %></h3>
+	
+		description : <%= sanitize(course.description) %> 
+		
+	    <div class="price_line">
+				price : <span class="price"><%= course.price %></span> 
+	    </div>
+			<%= link_to '자세히보기', course %>
+			<%= button_to '결제하기', line_items_path(course_id: course)%>
+			<% if session[:user_id] %> 
+			<%= button_to '결제승인', enrollments_path(user_id: session[:user_id],course_id: course)%>
+			<% end %> 
+		</div>
+<% end %>
+
+<% end %>
+
+

@@ -1,0 +1,33 @@
+<script type="text/javascript" src="http://s3.www.universalsubtitles.org/embed.js">
+(
+  {"video_url": "http://vimeo.com/19617146"}
+)
+</script>
+<script type="text/javascript">movieEmbedResize(400);</script>
+
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @lecture.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @lecture.description %>
+</p>
+
+<p>
+  <b>Video location:</b>
+  <%= @lecture.video_location %>
+</p>
+
+<p>
+  <b>Course:</b>
+  <%= @lecture.course_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_lecture_path(@lecture) %> |
+<%= link_to 'Back', lectures_path %>

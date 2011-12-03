@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h2>Your Cart</h2>
+
+<ul>
+	<% @cart.line_items.each do |item| %>
+ 	<tr>
+		<td><%= item.course.name %></td>
+		<td><%= item.course.price%></td>
+	</tr>	
+	<% end %> 
+	<tr class="total_line" >
+		<td colspan="2">Total</td>
+		<td class = "total_cell"><%= @cart.total_price%></td>
+	</tr>
+</ul>
+<%= button_to "결제하기", new_order_path, method: :get %>
+
+<%= button_to '장바구니 비우기', @cart, method: :delete, 
+ 	confirm: 'Are you sure?' %>
+
+
+<%= link_to 'Edit', edit_cart_path(@cart) %> |
+<%= link_to 'Back', carts_path %>
+
